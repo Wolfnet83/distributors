@@ -1,0 +1,18 @@
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %td= t('Username')
+      %td= t('Email')
+      %td= t('Created_at')
+      %td= t('Last_sign_in')
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.username, edit_user_path(user)
+        %td= user.email
+        %td= user.created_at
+        %td= user.current_sign_in_at
+        %td= link_to t('common.delete'), user, confirm: t('common.really'), method: :delete
+= link_to t('common.add'), new_user_registration_path, :class => 'btn btn-primary'
+%br/
+%br/

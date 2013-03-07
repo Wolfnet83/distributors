@@ -1,0 +1,9 @@
+%h2 Загрузить csv-файл с продукцией
+= form_tag({:action => :upload}, :multipart => true) do
+  =  file_field_tag 'file'
+  =  submit_tag 'Загрузить'
+
+%h2
+  = link_to 'Управление пользователями', users_path
+
+

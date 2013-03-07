@@ -1,0 +1,9 @@
+= simple_form_for @user, html: { class: "form-horizontal" } do |form|
+  = form.input :username
+  = form.input :email
+  = form.input :password, hint: t(:change_password_hint)
+  = form.input :password_confirmation
+  = form.input :distributor_id
+  .form-actions
+    = form.button :submit, class: "btn btn-primary"
+

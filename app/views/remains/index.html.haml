@@ -1,0 +1,24 @@
+-#= simple_form_for @remain, html: { class: "form-horizontal" } do |form|
+  -#= form.input :date
+  -#.form-actions
+    -#= form.button :submit, class: "btn btn-primary"
+= form_tag({:action => :remains_create}) do
+  =  text_field_tag :remain_date, @date
+  =  submit_tag 'Ввести остатки на дату'
+-#= yield :extjs
+-#= netzke :remains
+= simple_form_for :remain, :url => remains_remains_update_path do |f|
+  %table.table.table-striped.table-condensed
+    %thead
+      %tr
+        %td= t('Product_name')
+        %td= t('Date')
+        %td= t('Remain')
+    %tbody
+    - @remains.each do |remain|
+      %tr
+        %td= remain.product.product_name
+        %td= remain.remain_date
+        %td= f.input :remain, label: false, as: :integer
+  = f.button :submit
+  
