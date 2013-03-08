@@ -7,7 +7,7 @@
   =  submit_tag 'Ввести остатки на дату'
 -#= yield :extjs
 -#= netzke :remains
-= simple_form_for :remain, :url => remains_remains_update_path do |f|
+= form_tag remains_remains_update_path do 
   %table.table.table-striped.table-condensed
     %thead
       %tr
@@ -15,10 +15,15 @@
         %td= t('Date')
         %td= t('Remain')
     %tbody
+    - @remains_array = Hash.new
     - @remains.each do |remain|
-      %tr
-        %td= remain.product.product_name
-        %td= remain.remain_date
-        %td= f.input :remain, label: false, as: :integer
-  = f.button :submit
+      %tr 
+        = hidden_field_tag "remain_ids[]", remain.id
+        %td
+          = remain.product.product_name
+        %td
+          = remain.remain_date
+        %td
+          = number_field_tag 'remain_quantity[][remain]', remain.remain
+  = submit_tag
   
