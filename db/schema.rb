@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20130221124128) do
     t.integer  "distributor_id"
     t.datetime "remain_date"
     t.integer  "remain"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -41,11 +41,11 @@ ActiveRecord::Schema.define(:version => 20130221124128) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "distributor_id"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.boolean  "admin",                  :default => false
     t.string   "username"
-    t.integer  "distributor_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

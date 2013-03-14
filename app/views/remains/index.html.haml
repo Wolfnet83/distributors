@@ -8,19 +8,36 @@
 -#= yield :extjs
 -#= netzke :remains
 = form_tag remains_remains_update_path do 
-  %table.table.table-striped.table-condensed
-    %thead
-      %tr
-        %td= t('Product_name')
-        %td= t('Date')
-        %td= t('Remain')
-    %tbody
-    - @remains_array = Hash.new
+  -#%table#remains_table.table.table-striped.table-condensed
+    -#%thead
+      -#%tr
+        -#%td= t('Product_name')
+        -#%td= t('Date')
+        -#%td= t('Remain')
+    -#%tbody
+    -#- @remains.each do |remain|
+      -#%tr 
+        -#= hidden_field_tag "remain_ids[]", remain.id
+        -#%td= remain.product.product_name
+        -#%td= remain.remain_date
+        -#%td= number_field_tag 'remain_quantity[][remain]', remain.remain
+  %div
+    %h6
+      = t('Product_name')
+      = t('Date')
+      = t('Remain')
+  %div
+    - brand = ''
     - @remains.each do |remain|
-      %tr 
-        = hidden_field_tag "remain_ids[]", remain.id
-        %td= remain.product.product_name
-        %td= remain.remain_date
-        %td= number_field_tag 'remain_quantity[][remain]', remain.remain
+      - if brand != remain.product.brand_name
+        - brand = remain.product.brand_name
+        %div#accordion_test
+      = hidden_field_tag "remain_ids[]", remain.id
+      = remain.product.product_name
+      = remain.product.brand_name
+      = remain.remain_date
+      = number_field_tag 'remain_quantity[][remain]', remain.remain
+      %br
+
   = submit_tag
   

@@ -13,5 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
+//= require jquery.ui.datepicker-ru
+//= require jquery.ui.accordion
 //= require twitter/bootstrap
 //= require_tree .

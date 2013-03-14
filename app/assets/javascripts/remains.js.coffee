@@ -4,4 +4,7 @@
 jQuery ->
   $('#remain_date').datepicker
         dateFormat: $.datepicker.ISO_8601,
-        firstDay:1
+        firstDay:   1
+  $('#accordion_test').accordion
+        collapsible: true
+        header:      "div"
