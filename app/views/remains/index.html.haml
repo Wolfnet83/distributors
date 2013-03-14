@@ -19,11 +19,8 @@
     - @remains.each do |remain|
       %tr 
         = hidden_field_tag "remain_ids[]", remain.id
-        %td
-          = remain.product.product_name
-        %td
-          = remain.remain_date
-        %td
-          = number_field_tag 'remain_quantity[][remain]', remain.remain
+        %td= remain.product.product_name
+        %td= remain.remain_date
+        %td= number_field_tag 'remain_quantity[][remain]', remain.remain
   = submit_tag
   
