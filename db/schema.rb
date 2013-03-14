@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(:version => 20130221124128) do
 
   create_table "products", :force => true do |t|
-    t.integer  "product_id"
     t.string   "product_name"
     t.integer  "brand_id"
     t.string   "brand_name"

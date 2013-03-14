@@ -7,6 +7,7 @@ Distributors::Application.routes.draw do
   devise_for :users,  :controllers => { :registrations => "users/registrations" }
   resources :users, :remains, only: [:new, :edit, :create, :update, :destroy, :index]
   post "remains/remains_create"
+  #get "remains/remains_create"
   post "remains/remains_update"
   
 

@@ -5,9 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :distributor_id
+  attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :distributor_id, :admin
   # attr_accessible :title, :body
 
-  has_many :remains, :foreign_key => "distributor_id"
-  set_primary_key :distributor_id
+  has_many :remains, :foreign_key => "distributor_id", :primary_key => "distributor_id"
 end

@@ -6,7 +6,7 @@ class AdminPageController < ApplicationController
   end
 
   def upload
-    Product.import(params[:file])
+    Product.upload(params[:file])
     redirect_to admin_page_index_path
   end
 
