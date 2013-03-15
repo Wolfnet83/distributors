@@ -1,11 +1,10 @@
 class Product < ActiveRecord::Base
   attr_accessible :brand_id, :brand_name, :id, :product_name
   has_many :remains
-  #set_primary_key :product_id 
 
   def self.upload(csv_text)
     Product.delete_all
-    products = []
+    #products = []
     CSV.foreach(csv_text.path, :headers => true, col_sep: ";", quote_char: "|", encoding: "cp1251") do |row|
       product = Product.new
       product.id = row["Product_ID"]

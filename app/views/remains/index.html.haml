@@ -21,23 +21,41 @@
         -#%td= remain.product.product_name
         -#%td= remain.remain_date
         -#%td= number_field_tag 'remain_quantity[][remain]', remain.remain
-  %div
-    %h6
-      = t('Product_name')
-      = t('Date')
-      = t('Remain')
-  %div
+  -#%div
+    -#%h6
+      -#= t('Product_name')
+      -#= t('Date')
+      -#= t('Remain')
+  %div#accordion_test
     - brand = ''
     - @remains.each do |remain|
       - if brand != remain.product.brand_name
+        - if brand != '' 
+          :plain
+            </table>
+            </div>
         - brand = remain.product.brand_name
-        %div#accordion_test
-      = hidden_field_tag "remain_ids[]", remain.id
-      = remain.product.product_name
-      = remain.product.brand_name
-      = remain.remain_date
-      = number_field_tag 'remain_quantity[][remain]', remain.remain
-      %br
-
-  = submit_tag
+        %h3
+          = brand
+        :plain
+          <div>
+          <table class="table-striped table-condensed" width=100%>
+        %tr
+          = hidden_field_tag "remain_ids[]", remain.id
+          %td= remain.product.product_name
+          %td= remain.product.brand_name
+          %td= remain.remain_date.to_date()
+          %td= number_field_tag 'remain_quantity[][remain]', remain.remain
+      - else
+        %tr
+          = hidden_field_tag "remain_ids[]", remain.id
+          %td= remain.product.product_name
+          %td= remain.product.brand_name
+          %td= remain.remain_date.to_date()
+          %td= number_field_tag 'remain_quantity[][remain]', remain.remain
+    :plain
+      </table>
+      </div>
+      <br>
+  = submit_tag t('remains.save'), :class => "btn btn-primary"
   

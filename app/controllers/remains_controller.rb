@@ -4,13 +4,16 @@ class RemainsController < ApplicationController
 
   def index
    @remains = current_user.remains.at_date(@date) 
+    #logger.info "*"*80
+    #logger.info @remains.inspect
+    #logger.info "*"*80
   end
 
   def remains_create
    if current_user.remains.at_date(@date).exists?
      @remains = current_user.remains.at_date(@date) 
    else
-     products = Product.all
+     products = Product.order(:brand_id)
      products.each do |product|
        remain = Remain.new
        remain.product_id = product.id

@@ -6,5 +6,7 @@ jQuery ->
         dateFormat: $.datepicker.ISO_8601,
         firstDay:   1
   $('#accordion_test').accordion
+        header: "h3"
         collapsible: true
-        header:      "div"
+        heightStyle: "content"
+
